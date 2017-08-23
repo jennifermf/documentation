@@ -35,7 +35,7 @@ Mastodon is a system decentralized through a concept called "*federation*" - rat
 
 As such, anyone can download Mastodon and e.g. run it for a small community of people, but any user registered on that instance can follow, send, and read posts from other Mastodon instances (as well as servers running other OStatus-compatible services, such as GNU Social and postActiv). This means that not only is users' data not inherently owned by a company with an interest in selling it to advertisers, but also that if any given server shuts down its users can set up a new one or migrate to another instance, rather than the entire service being lost.
 
-Within each Mastodon instance, usernames just appear as `@username`, similar to other services such as Twitter. Users from other instances appear, and can be searched for and followed, as `@user@servername.ext` - so e.g. `@gargron` on the `mastodon.social` instance can be followed from other instances as `@gargron@mastodon.social`).
+Within each Mastodon instance, usernames just appear as `@username`, similar to other services such as Twitter. Users from other instances appear, and can be searched for and followed, as `@user@servername.ext` - so e.g. `@gargron` on the `mastodon.social` instance can be followed from other instances as `@gargron@mastodon.social`). 
 
 Posts from users on external instances are "*federated*" into the local one, i.e. if `user1@mastodon1` follows `user2@gnusocial2`, any posts `user2@gnusocial2` makes appear in both `user1@mastodon1`'s Home feed and the public timeline on the `mastodon1` server. Mastodon server administrators have some control over this and can exclude users' posts from appearing on the public timeline; post privacy settings from users on Mastodon instances also affect this, see below in the [Toot Privacy](User-guide.md#toot-privacy) section.
 
@@ -45,7 +45,9 @@ Posts from users on external instances are "*federated*" into the local one, i.e
 
 You can customise your Mastodon profile in a number of ways - you can set a custom "display" name, a profile "avatar" picture, a background image for your profile page header, and a short "bio" that summarises you or your account.
 
-![Preferences icon](screenshots/preferences.png) To edit your profile, click the Preferences icon in the Compose column and select "Edit Profile" on the left-hand menu on the Preferences page. Your display name is limited to 30 characters, your bio to 160. Avatars and header pictures can be uploaded as png, gif or jpg images and cannot be larger than 2MB. They will be resized to standard sizes - 120x120 pixels for avatars, 700x335 pixels for header pictures. 
+![Preferences icon](screenshots/preferences.png) To edit your profile, click the Preferences icon in the Compose column and select "Edit Profile" on the left-hand menu on the Preferences page. Your display name is limited to 30 characters, your bio to 160. (**NOTE** Some instances may offer more characters.) Avatars and header pictures can be uploaded as png, gif or jpg images and cannot be larger than 2MB. They will be resized to standard sizes - 120x120 pixels for avatars, 700x335 pixels for header pictures. 
+
+Profiles can be viewed on the web with the format `https://mastodon.social/@gargron` or by clicking the user's profile picture. **NOTE** This will display all public toots from a user, as well as any toots you have permission to see if you are logged in, which may include private toots and direct messages. (For more about toot visibility, see the [Toot Privacy](User-guide.md#toot-privacy) section below)
 
 #### E-Mail Notifications
 
@@ -53,7 +55,7 @@ You can customise your Mastodon profile in a number of ways - you can set a cust
 
 #### Text Posts
 
-The most basic way to interact with Mastodon is to make a text post, also called a *Toot*. In order to toot, simply enter the message you want to post into the "What is on your mind?" text box in the Compose column and click "TOOT". There is a limit of up to 500 characters per toot; if you really do need more than this you can reply to your own toots so they will appear like a conversation.
+The most basic way to interact with Mastodon is to make a text post, also called a *Toot*. In order to toot, simply enter the message you want to post into the "What is on your mind?" text box in the Compose column and click "TOOT". There is a limit of up to 500 characters per toot; if you really do need more than this you can reply to your own toots so they will appear like a conversation. (**NOTE** Some instances may allow longer toots.)
 
 If you want to reply to another user's toot, you can click the "Reply" icon on it. This will add their username to your input box along with a preview of the message you're replying to, and the user will receive a notification of your response.
 
@@ -71,7 +73,7 @@ This will cause the body of your post to be hidden behind a "Show More" button i
 
 ![animation showing content warnings in the timeline](screenshots/cw-toot.gif)
 
-**NOTE** that this will not hide images included in your post - images can be marked as "sensitive" separately to hide them from view until clicked on. To find out how to do this, see the [Posting Images](User-guide.md#posting-images) section of this user guide.
+**NOTE** that this will also hide any images included in your post, but images can be separately marked as "sensitive" to hide them from view until clicked, without hiding a toot's text. To find out how to do this, see the [Posting Images](User-guide.md#posting-images) section of this user guide.
 
 ##### Hashtags
 
@@ -91,9 +93,9 @@ You can also simply drag and drop your image from your desktop into the text box
 
 ![Image icon](screenshots/drag-and-drop-image.gif)
 
-If the image is "not safe for work" or has otherwise sensitive content, you can select the ![NSFW toggle](screenshots/compose-nsfw.png) "NSFW" button which appears once you have added an image. This will hide the image in your post by default, making it clickable to show the preview. This is the "visual" version of [content warnings](User-guide.md#content-warnings) and could be combined with them if there is text to accompany the image - otherwise it's fine to just mark the image as sensitive and make the body of your post the content warning.
+If the image has sensitive content, you can select the ![NSFW toggle](screenshots/compose-nsfw.png) "Mark media as sensitive" button which looks like an eye, and appears once you have added an image. This will hide the image in your post, and allow users to view the image by clicking the black "sensitive content" placeholder. This is the "visual" version of [content warnings](User-guide.md#content-warnings) and could be combined with them if there is text to accompany the image - otherwise it's fine to just mark the image as sensitive and make the body of your post the content warning.
 
-You can also attach video files or GIF animations to Toots. However, there is a 4MB file size limit for these files and videos must be in .webm or .mp4 format.
+You can also attach video files or GIF animations to toots. However, there is a 4MB file size limit for these files and videos must be in .webm or .mp4 format.
 
 #### Following Other Users
 
@@ -220,7 +222,9 @@ If you encounter a toot or a user that is breaking the rules of your instance or
 
 ![Report form](screenshots/report.png)
 
-In this form, you can select any toots you would like to report to the instance administrators and fill in any comment that might be helpful in identifying or handling the issue (from "is a spammer" to "this post contains untagged pornography"). The report will be visible to server administrators once it is sent so they can take appropriate action, for example hiding the user's posts from the public timeline or banning their account.
+In this form, you can select any toots you would like to report to the instance administrators and fill in any comment that might be helpful in identifying or handling the issue (from "is a spammer" to "this post contains untagged pornography"). The report will be visible to server administrators once it is sent so they can take appropriate action, for example hiding the user's posts from the public timeline or banning their account. 
+
+**NOTE** Reports are received by your instance's administrator(s). If the toots or user being reported are from another instance, that instance's administrator(s) will not be receive any reports.
 
 ## Still questions?
 
